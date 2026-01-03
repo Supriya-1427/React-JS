@@ -1,0 +1,65 @@
+                                 App.jsx.......................
+import { useState } from "react";
+
+function App(){
+const [tasks,setTask]=useState([])
+const [text,setText]=useState("")
+
+const addTask=()=>{
+  setTask([...tasks , {name:text , completed: false} ])
+  setText("")
+
+}
+const deleteTask=(index)=>{
+  setTask(tasks.filter((_,i)=> i !==index))
+
+}
+
+  return(
+    <>
+    <h1>To-Do List</h1>
+    <input
+    value={text} 
+    onChange={(e)=>setText(e.target.value)}
+    placeholder="Enter Task"
+    />
+    <button onClick={addTask}>Add</button>
+    <ul>
+      {tasks.map((task,index)=>(
+        <li key={index}>
+          <input
+          type="checkbox"
+          checked={tasks.completed}
+          />
+          <span>{task.name}</span>
+          <button onClick={()=>deleteTask(index)}>delete</button>
+
+        </li>
+      
+
+      ))}
+    </ul>
+    </>
+  )
+}
+export default App;
+
+                  .................................................
+
+                         index.css.......................
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(17, 15, 15, 0.87);
+  background-color: #f3f1f1;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+              ...................................
