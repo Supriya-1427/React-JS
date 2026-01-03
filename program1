@@ -53,3 +53,5 @@ export default Counter;
   text-align: center;
   background-color: #e2dddd;
   color: black;
+
+---------------------------------
